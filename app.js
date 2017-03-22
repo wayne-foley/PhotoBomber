@@ -1,6 +1,6 @@
 var express = require('express');
 var httpsRedirect = require('express-https-redirect');
-var gallery = require('./express-photo-gallery');
+var gallery = require('./gallery');
 
 var app = express();
 
