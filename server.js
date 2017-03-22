@@ -14,7 +14,7 @@ flickrOptions = {
     user_id: process.env.FLICKR_USER.toUpperCase()
 };
 
-//app.use('/', httpsRedirect(true));
+app.use('/', httpsRedirect(true));
 app.use('/', gallery(flickrOptions, options));
 
 console.log("Listening on port 3000");
