@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>React Rendering Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.css">
+  </head>
+  <body>
+    <div id="react-main-mount"><%- reactOutput %></div>
+
+    <!-- comment out main.js to see server side only rendering -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.js"></script>
+
+    <script>window.PROPS=<%- reactProps %></script>
+    <script src="/main.js" ></script>
+    <script>
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
+    </script>
+  </body>
+</html>

@@ -15,7 +15,7 @@ var getPhotoPage = function(pageNumber, user_id, flickr, callback) {
     var items = [];
     result.photos.photo.forEach(function(photo) {
       var photoObject = {};
-
+      photoObject.id = photo.id;
       photoObject.src = photo.url_l;
       photoObject.downloadUrl =  photo.url_o;
       photoObject.thumb = photo.url_m;
@@ -27,24 +27,11 @@ var getPhotoPage = function(pageNumber, user_id, flickr, callback) {
   });
 };
 
-module.exports = function(flickrOptions, userOptions, callback) {
+module.exports = function(flickrOptions, pageNumber, callback) {
   Flickr.tokenOnly(flickrOptions, function(error, flickr) {
-  getPhotoPage(1, flickrOptions.user_id, flickr, function(err, items) {
-    var allPhotos = [].concat.apply([], items);
-    var mandatorySettings = {
-      dynamic: true,
-      dynamicEl: allPhotos,
-      closable: false,
-      escKey: false,
-    };
-
-    var optionalSettings = {
-      download: true
-    };
-
-    var payload = _.assign(optionalSettings, userOptions, mandatorySettings);
-
-    callback(payload);
+    getPhotoPage(pageNumber, flickrOptions.user_id, flickr, function(err, items) {
+      var allPhotos = [].concat.apply([], items);
+      callback(allPhotos);
     });
   });
 }
