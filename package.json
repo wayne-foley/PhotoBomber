@@ -5,6 +5,9 @@
   "main": "server.js",
   "author": "wfoley",
   "license": "MIT",
+  "scripts": {
+    "build": "browserify app.js | uglifyjs > ./public/main.js"
+  },
   "dependencies": {
     "ejs": "^2.5.6",
     "node-jsx": "^0.13.3",
