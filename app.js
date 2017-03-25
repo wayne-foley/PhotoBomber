@@ -7,4 +7,4 @@ var PhotoGallery = require('./components/PhotoGallery');
 var mountNode = document.getElementById('react-main-mount');
 var props = window.PROPS;
 
-ReactDOM.render(<PhotoGallery photos={props} />, mountNode);
+ReactDOM.render(<PhotoGallery data={ props } />, mountNode);
