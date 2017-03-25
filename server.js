@@ -1,6 +1,6 @@
+var jsx = require('node-jsx').install();
 var express = require('express');
 var httpsRedirect = require('express-https-redirect');
-var jsx = require('node-jsx').install();
 var routes = require('./routes');
 var path = require('path');
 
