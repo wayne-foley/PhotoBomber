@@ -3,24 +3,23 @@
   "version": "1.0.0",
   "description": "Photo App",
   "main": "server.js",
-  "author": "wfoley",
+  "author": "wayne-foley",
   "license": "MIT",
   "scripts": {
     "build": "browserify app.js | uglifyjs > ./public/main.js"
   },
   "dependencies": {
-    "ejs": "^2.5.6",
-    "node-jsx": "^0.13.3",
-    "express": "^4.14.0",
-    "express-https-redirect": "^1.0.0",
     "path": "^0.12.7",
+    "node-jsx": "^0.13.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-infinite-scroller": "^1.0.7",
-    "router": "^1.1.4"
+    "ejs": "^2.5.6",
+    "router": "^1.1.4",
+    "express": "^4.14.0",
+    "express-https-redirect": "^1.0.0"
   },
   "devDependencies": {
-    "express": "^4.14.0",
     "reactify": "^1.1.1"
   },
   "browserify": {
