@@ -1,4 +1,4 @@
-var phin = require('../phin');
+var phin = require('./phin');
 
 var getPhotoPage = function(pageNumber, user_id, api_key, callback) {
     var per_page = 50;

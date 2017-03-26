@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//app.use('/', httpsRedirect(true));
+app.use('/', httpsRedirect(true));
 app.use('/', routes.index(flickrOptions, fetchUrl));
 app.use('/page', routes.page(flickrOptions));
 
