@@ -3,7 +3,7 @@ var phin = require('./phin');
 var getPhotoPage = function(pageNumber, user_id, api_key, callback) {
     var per_page = 50;
     var extras = "url_t,url_m, url_l,url_o";
-    var flickrMethodUri = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json";
+    var flickrMethodUri = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&sort=date-taken-desc";
     var uri = `${flickrMethodUri}&api_key=${api_key}&user_id=${user_id}&per_page=${per_page}&extras=${extras}&page=${pageNumber}`;
     
     phin( {"url": uri }, function(err, body, response) {
