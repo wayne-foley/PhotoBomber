@@ -12,11 +12,21 @@ var flickrOptions = {
     user_id: process.env.FLICKR_USER.toUpperCase()
 };
 
+var allowCrossDomain = function(req, res, next) {
+    //this is here to deal with www.domain.com vs. just domain.com
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use('/', httpsRedirect(true));
+app.use('/', allowCrossDomain);
 app.use('/', routes.index(flickrOptions, fetchUrl));
 app.use('/page', routes.page(flickrOptions));
 
